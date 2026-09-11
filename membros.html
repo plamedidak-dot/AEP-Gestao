@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AEP-2 | Membros</title>
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/membros.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-header">
+
+            <div class="logo-circle">
+                <i class="fa-solid fa-users"></i>
+            </div>
+
+            <div>
+                <h2>AEP-2</h2>
+                <span>Gestão</span>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-menu">
+
+            <div class="menu-title">
+                PRINCIPAL
+            </div>
+
+            <a href="dashboard.html" class="menu-item">
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+
+
+            <div class="menu-title">
+                ASSOCIAÇÃO
+            </div>
+
+            <a href="membros.html" class="menu-item active">
+                <i class="fa-solid fa-users"></i>
+                <span>Membros</span>
+            </a>
+
+            <a href="departamentos.html" class="menu-item">
+                <i class="fa-solid fa-building"></i>
+                <span>Departamentos</span>
+            </a>
+
+            <a href="presencas.html" class="menu-item">
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>Presenças</span>
+            </a>
+
+            <a href="quotas.html" class="menu-item">
+                <i class="fa-solid fa-coins"></i>
+                <span>Quotas</span>
+            </a>
+
+            <a href="reunioes.html" class="menu-item">
+                <i class="fa-solid fa-handshake"></i>
+                <span>Reuniões</span>
+            </a>
+
+            <a href="relatorios.html" class="menu-item">
+                <i class="fa-solid fa-chart-column"></i>
+                <span>Relatórios</span>
+            </a>
+
+            <a href="cartoes.html" class="menu-item">
+                <i class="fa-solid fa-id-card"></i>
+                <span>Cartões</span>
+            </a>
+
+
+            <div class="menu-title">
+                SISTEMA
+            </div>
+
+            <a href="configuracoes.html" class="menu-item">
+                <i class="fa-solid fa-gear"></i>
+                <span>Configurações</span>
+            </a>
+
+        </nav>
+
+
+        <button id="logoutBtn" class="logout-btn">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            <span>
+                Terminar sessão
+            </span>
+
+        </button>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         MAIN
+    ====================================================== -->
+
+    <main class="main">
+
+        <!-- TOPBAR -->
+
+        <header class="topbar">
+
+            <button
+                id="menuBtn"
+                class="menu-btn"
+            >
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+
+            <div class="search-global">
+
+                <i class="fa-solid fa-magnifying-glass"></i>
+
+                <input
+                    type="text"
+                    placeholder="Pesquisar no sistema..."
+                >
+
+            </div>
+
+
+            <div class="user-area">
+
+                <div class="user-info">
+
+                    <div class="user-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+
+                    <div>
+
+                        <strong id="userEmail">
+                            Utilizador
+                        </strong>
+
+                        <span>
+                            Administrador
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             PÁGINA
+        ================================================== -->
+
+        <section class="page">
+
+
+            <!-- CABEÇALHO -->
+
+            <div class="page-header">
+
+                <div class="page-title">
+
+                    <div class="title-icon">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+
+                    <div>
+
+                        <h1>
+                            Membros
+                        </h1>
+
+                        <p>
+                            Gerir os membros da Associação dos Estudantes
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="header-actions">
+
+                    <button
+                        id="generatePdfBtn"
+                        class="btn btn-pdf"
+                    >
+
+                        <i class="fa-solid fa-file-pdf"></i>
+
+                        Gerar PDF da Lista
+
+                    </button>
+
+
+                    <button
+                        id="newMemberBtn"
+                        class="btn btn-primary"
+                    >
+
+                        <i class="fa-solid fa-plus"></i>
+
+                        Novo Membro
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 ESTATÍSTICAS
+            ================================================== -->
+
+            <div class="stats">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+
+                        <i class="fa-solid fa-users"></i>
+
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Total de membros
+                        </span>
+
+                        <strong id="totalMembers">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+
+                        <i class="fa-solid fa-user-check"></i>
+
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Membros ativos
+                        </span>
+
+                        <strong id="activeMembers">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon red">
+
+                        <i class="fa-solid fa-user-xmark"></i>
+
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Membros inativos
+                        </span>
+
+                        <strong id="inactiveMembers">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 FILTROS
+            ================================================== -->
+
+            <div class="filters-card">
+
+                <div class="filter-search">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        type="text"
+                        id="memberSearch"
+                        placeholder="Pesquisar por nome, matrícula, cargo, telefone ou curso..."
+                    >
+
+                </div>
+
+
+                <select id="cargoFilter">
+
+                    <option value="todos">
+                        Todos os cargos
+                    </option>
+
+                    <option value="Presidente">
+                        Presidente
+                    </option>
+
+                    <option value="Vice-Presidente">
+                        Vice-Presidente
+                    </option>
+
+                    <option value="Secretária">
+                        Secretária
+                    </option>
+
+                    <option value="Tesoureiro">
+                        Tesoureiro
+                    </option>
+
+                    <option value="Membro">
+                        Membro
+                    </option>
+
+                </select>
+
+
+                <select id="statusFilter">
+
+                    <option value="todos">
+                        Todos os estados
+                    </option>
+
+                    <option value="Ativo">
+                        Ativos
+                    </option>
+
+                    <option value="Inativo">
+                        Inativos
+                    </option>
+
+                </select>
+
+
+                <button
+                    id="clearFilters"
+                    class="btn-clear"
+                >
+
+                    <i class="fa-solid fa-filter-circle-xmark"></i>
+
+                    Limpar
+
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 TABELA
+            ================================================== -->
+
+            <div class="table-card">
+
+                <div class="table-header">
+
+                    <div>
+
+                        <h2>
+                            Lista de membros
+                        </h2>
+
+                        <p id="listInfo">
+                            A carregar membros...
+                        </p>
+
+                    </div>
+
+
+                    <div class="alphabet-info">
+
+                        <i class="fa-solid fa-arrow-down-a-z"></i>
+
+                        Ordem alfabética A–Z
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Nº
+                                </th>
+
+                                <th>
+                                    Nome completo
+                                </th>
+
+                                <th>
+                                    Nº de membro
+                                </th>
+
+                                <th>
+                                    Classe / Curso
+                                </th>
+
+                                <th>
+                                    Cargo / Função
+                                </th>
+
+                                <th>
+                                    Departamento
+                                </th>
+
+                                <th>
+                                    Telefone
+                                </th>
+
+                                <th>
+                                    Estado
+                                </th>
+
+                                <th>
+                                    Ações
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="membersTableBody">
+
+                            <tr>
+
+                                <td
+                                    colspan="9"
+                                    class="loading"
+                                >
+
+                                    <i class="fa-solid fa-spinner fa-spin"></i>
+
+                                    A carregar membros...
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+
+<!-- =========================================================
+     MODAL — NOVO / EDITAR MEMBRO
+========================================================= -->
+
+<div
+    class="modal-overlay"
+    id="memberModal"
+>
+
+    <div class="modal">
+
+
+        <div class="modal-header">
+
+            <div>
+
+                <h2 id="modalTitle">
+                    Novo Membro
+                </h2>
+
+                <p>
+                    Preencha os dados do membro
+                </p>
+
+            </div>
+
+
+            <button
+                id="closeModal"
+                class="close-btn"
+            >
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+
+
+        <form id="memberForm">
+
+            <input
+                type="hidden"
+                id="memberId"
+            >
+
+
+            <div class="form-grid">
+
+
+                <!-- NOME -->
+
+                <div class="form-group full">
+
+                    <label for="nome">
+                        Nome completo *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nome"
+                        required
+                        placeholder="Ex.: João Manuel Mbuta"
+                    >
+
+                </div>
+
+
+
+                <!-- MATRÍCULA -->
+
+                <div class="form-group">
+
+                    <label for="matricula">
+                        Nº de membro
+                    </label>
+
+                    <input
+                        type="text"
+                        id="matricula"
+                        placeholder="Ex.: AEP2-001"
+                    >
+
+                </div>
+
+
+
+                <!-- TELEFONE -->
+
+                <div class="form-group">
+
+                    <label for="telefone">
+                        Telefone
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="telefone"
+                        placeholder="Ex.: 933 000 000"
+                    >
+
+                </div>
+
+
+
+                <!-- CLASSE -->
+
+                <div class="form-group">
+
+                    <label for="classe">
+                        Classe
+                    </label>
+
+                    <input
+                        type="text"
+                        id="classe"
+                        placeholder="Ex.: 11ª"
+                    >
+
+                </div>
+
+
+
+                <!-- CURSO -->
+
+                <div class="form-group">
+
+                    <label for="curso">
+                        Curso
+                    </label>
+
+                    <input
+                        type="text"
+                        id="curso"
+                        placeholder="Ex.: Informática"
+                    >
+
+                </div>
+
+
+
+                <!-- CARGO -->
+
+                <div class="form-group">
+
+                    <label for="cargo">
+                        Cargo / Função *
+                    </label>
+
+                    <select id="cargo" required>
+
+                        <option value="Membro">
+                            Membro
+                        </option>
+
+                        <option value="Presidente">
+                            Presidente
+                        </option>
+
+                        <option value="Vice-Presidente">
+                            Vice-Presidente
+                        </option>
+
+                        <option value="Secretária">
+                            Secretária
+                        </option>
+
+                        <option value="Tesoureiro">
+                            Tesoureiro
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <!-- DEPARTAMENTO -->
+
+                <div class="form-group">
+
+                    <label for="departamento">
+                        Departamento
+                    </label>
+
+                    <input
+                        type="text"
+                        id="departamento"
+                        placeholder="Ex.: Informática"
+                    >
+
+                </div>
+
+
+
+                <!-- ESTADO -->
+
+                <div class="form-group">
+
+                    <label for="estado">
+                        Estado
+                    </label>
+
+                    <select id="estado">
+
+                        <option value="Ativo">
+                            Ativo
+                        </option>
+
+                        <option value="Inativo">
+                            Inativo
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+
+            <div
+                id="formMessage"
+                class="form-message"
+            ></div>
+
+
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    id="cancelBtn"
+                    class="btn btn-secondary"
+                >
+                    Cancelar
+                </button>
+
+
+                <button
+                    type="submit"
+                    id="saveBtn"
+                    class="btn btn-primary"
+                >
+
+                    <i class="fa-solid fa-floppy-disk"></i>
+
+                    Guardar membro
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     MODAL — ELIMINAR
+========================================================= -->
+
+<div
+    class="modal-overlay"
+    id="deleteModal"
+>
+
+    <div class="confirm-modal">
+
+        <div class="confirm-icon">
+
+            <i class="fa-solid fa-trash"></i>
+
+        </div>
+
+
+        <h2>
+            Eliminar membro?
+        </h2>
+
+
+        <p id="deleteMessage">
+            Tem certeza que deseja eliminar este membro?
+        </p>
+
+
+        <div class="confirm-actions">
+
+            <button
+                id="cancelDelete"
+                class="btn btn-secondary"
+            >
+                Cancelar
+            </button>
+
+
+            <button
+                id="confirmDelete"
+                class="btn btn-danger"
+            >
+
+                <i class="fa-solid fa-trash"></i>
+
+                Eliminar
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     BIBLIOTECAS PDF
+========================================================= -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.8.2/jspdf.plugin.autotable.min.js"></script>
+
+
+
+<!-- JAVASCRIPT -->
+
+<script
+    type="module"
+    src="membros.js"
+></script>
+
+</body>
+</html>

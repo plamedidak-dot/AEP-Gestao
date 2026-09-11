@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#f28c00">
+
+    <title>AEP-2 | Sistema de Gestão</title>
+
+    <link rel="stylesheet" href="css/Login.css">
+
+    <!-- Ícones -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+</head>
+
+<body>
+
+    <main class="login-page">
+
+        <section class="login-card">
+
+            <!-- Logo -->
+            <div class="logo-area">
+                <div class="logo">
+                    <i class="fa-solid fa-users"></i>
+                </div>
+
+                <h1>AEP-2</h1>
+
+                <p>
+                    Sistema de Gestão
+                </p>
+
+                <span>
+                    Associação dos Estudantes<br>
+                    do Complexo Escolar Privado Proglory II
+                </span>
+            </div>
+
+            <!-- Formulário -->
+            <form id="loginForm">
+
+                <div class="form-group">
+
+                    <label for="email">
+                        E-mail
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="Digite o seu e-mail"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="password">
+                        Palavra-passe
+                    </label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            type="password"
+                            id="password"
+                            placeholder="Digite a sua palavra-passe"
+                            autocomplete="current-password"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            id="togglePassword"
+                            class="password-toggle"
+                            aria-label="Mostrar palavra-passe"
+                        >
+                            <i class="fa-solid fa-eye"></i>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-options">
+
+                    <label class="remember">
+
+                        <input
+                            type="checkbox"
+                            id="rememberMe"
+                        >
+
+                        <span>Lembrar-me</span>
+
+                    </label>
+
+                    <button
+                        type="button"
+                        id="forgotPassword"
+                        class="forgot-password"
+                    >
+                        Esqueci a palavra-passe
+                    </button>
+
+                </div>
+
+
+                <!-- Mensagem -->
+                <div
+                    id="message"
+                    class="message"
+                    role="alert"
+                ></div>
+
+
+                <!-- Botão -->
+                <button
+                    type="submit"
+                    id="loginButton"
+                    class="login-button"
+                >
+
+                    <span id="buttonText">
+                        Entrar
+                    </span>
+
+                    <span
+                        id="loading"
+                        class="loading"
+                    >
+                        <i class="fa-solid fa-spinner fa-spin"></i>
+                        A entrar...
+                    </span>
+
+                </button>
+
+            </form>
+
+
+            <div class="security-info">
+
+                <i class="fa-solid fa-shield-halved"></i>
+
+                <span>
+                    Acesso protegido pelo Firebase
+                </span>
+
+            </div>
+
+
+            <footer>
+
+                <p>
+                    © 2026 AEP-2
+                </p>
+
+                <p>
+                    Sistema de Gestão da Associação dos Estudantes
+                </p>
+
+            </footer>
+
+        </section>
+
+    </main>
+
+
+    <!-- JavaScript -->
+    <script
+        type="module"
+        src="js/login.js"
+    ></script>
+
+</body>
+</html>

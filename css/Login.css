@@ -1,0 +1,656 @@
+/* ================================
+   CONFIGURAÇÕES GERAIS
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #f28c00;
+    --primary-dark: #d87500;
+    --primary-light: #fff3df;
+
+    --background: #f5f6f8;
+    --card: #ffffff;
+
+    --text: #202124;
+    --text-light: #6b7280;
+
+    --border: #e2e5e9;
+
+    --danger: #dc3545;
+    --success: #198754;
+}
+
+body {
+    font-family:
+        Inter,
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background: var(--background);
+
+    color: var(--text);
+
+    min-height: 100vh;
+}
+
+
+/* ================================
+   PÁGINA DE LOGIN
+================================ */
+
+.login-page {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 25px;
+}
+
+
+/* ================================
+   CARTÃO
+================================ */
+
+.login-card {
+
+    width: 100%;
+
+    max-width: 440px;
+
+    background: var(--card);
+
+    border-radius: 22px;
+
+    padding: 38px;
+
+    box-shadow:
+        0 15px 45px rgba(0, 0, 0, 0.08);
+
+    border: 1px solid rgba(0, 0, 0, 0.03);
+
+    animation: cardAppear 0.5s ease;
+}
+
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* ================================
+   LOGO
+================================ */
+
+.logo-area {
+
+    text-align: center;
+
+    margin-bottom: 32px;
+}
+
+
+.logo {
+
+    width: 76px;
+
+    height: 76px;
+
+    margin: 0 auto 15px;
+
+    border-radius: 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            #ffb13b
+        );
+
+    color: white;
+
+    font-size: 32px;
+
+    box-shadow:
+        0 8px 20px rgba(242, 140, 0, 0.25);
+}
+
+
+.logo-area h1 {
+
+    font-size: 28px;
+
+    font-weight: 800;
+
+    color: var(--text);
+
+    margin-bottom: 4px;
+}
+
+
+.logo-area p {
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    color: var(--primary);
+
+    margin-bottom: 7px;
+}
+
+
+.logo-area span {
+
+    display: block;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+    color: var(--text-light);
+}
+
+
+/* ================================
+   FORMULÁRIO
+================================ */
+
+.form-group {
+
+    margin-bottom: 20px;
+}
+
+
+.form-group label {
+
+    display: block;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    margin-bottom: 8px;
+
+    color: #34373b;
+}
+
+
+/* ================================
+   INPUT
+================================ */
+
+.input-box {
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+}
+
+
+.input-box > i {
+
+    position: absolute;
+
+    left: 16px;
+
+    color: #9ca3af;
+
+    font-size: 16px;
+
+    pointer-events: none;
+}
+
+
+.input-box input {
+
+    width: 100%;
+
+    height: 52px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    outline: none;
+
+    padding:
+        0 48px
+        0 46px;
+
+    font-size: 15px;
+
+    color: var(--text);
+
+    background: #fafafa;
+
+    transition:
+        border-color 0.2s,
+        box-shadow 0.2s,
+        background 0.2s;
+}
+
+
+.input-box input:focus {
+
+    background: white;
+
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 4px rgba(242, 140, 0, 0.12);
+}
+
+
+.input-box input::placeholder {
+
+    color: #a0a5ad;
+}
+
+
+/* ================================
+   MOSTRAR PASSWORD
+================================ */
+
+.password-toggle {
+
+    position: absolute;
+
+    right: 5px;
+
+    width: 42px;
+
+    height: 42px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #888;
+
+    cursor: pointer;
+
+    border-radius: 10px;
+
+    font-size: 16px;
+}
+
+
+.password-toggle:hover {
+
+    background: #f1f1f1;
+
+    color: var(--primary);
+}
+
+
+/* ================================
+   OPÇÕES
+================================ */
+
+.form-options {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    margin: 4px 0 18px;
+
+    font-size: 13px;
+}
+
+
+.remember {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    cursor: pointer;
+
+    color: var(--text-light);
+}
+
+
+.remember input {
+
+    width: 15px;
+
+    height: 15px;
+
+    accent-color: var(--primary);
+
+    cursor: pointer;
+}
+
+
+.forgot-password {
+
+    border: none;
+
+    background: transparent;
+
+    color: var(--primary);
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    padding: 3px;
+}
+
+
+.forgot-password:hover {
+
+    text-decoration: underline;
+}
+
+
+/* ================================
+   MENSAGENS
+================================ */
+
+.message {
+
+    display: none;
+
+    padding: 12px 14px;
+
+    margin-bottom: 16px;
+
+    border-radius: 10px;
+
+    font-size: 13px;
+
+    line-height: 1.4;
+}
+
+
+.message.error {
+
+    display: block;
+
+    color: #842029;
+
+    background: #f8d7da;
+
+    border: 1px solid #f1aeb5;
+}
+
+
+.message.success {
+
+    display: block;
+
+    color: #0f5132;
+
+    background: #d1e7dd;
+
+    border: 1px solid #a3cfbb;
+}
+
+
+/* ================================
+   BOTÃO LOGIN
+================================ */
+
+.login-button {
+
+    width: 100%;
+
+    height: 53px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--primary),
+            #ff9d1a
+        );
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 7px 18px rgba(242, 140, 0, 0.22);
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s,
+        opacity 0.2s;
+}
+
+
+.login-button:hover {
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 10px 22px rgba(242, 140, 0, 0.28);
+}
+
+
+.login-button:active {
+
+    transform: translateY(0);
+}
+
+
+.login-button:disabled {
+
+    opacity: 0.7;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+/* ================================
+   LOADING
+================================ */
+
+.loading {
+
+    display: none;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+}
+
+
+.login-button.loading-button #buttonText {
+
+    display: none;
+}
+
+
+.login-button.loading-button .loading {
+
+    display: flex;
+}
+
+
+/* ================================
+   SEGURANÇA
+================================ */
+
+.security-info {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 7px;
+
+    margin-top: 22px;
+
+    color: #7b8189;
+
+    font-size: 12px;
+}
+
+
+.security-info i {
+
+    color: var(--success);
+
+    font-size: 13px;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+footer {
+
+    text-align: center;
+
+    margin-top: 28px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #eeeeee;
+}
+
+
+footer p {
+
+    font-size: 11px;
+
+    color: #9a9ea5;
+
+    line-height: 1.6;
+}
+
+
+/* ================================
+   RESPONSIVO
+================================ */
+
+@media (max-width: 500px) {
+
+    .login-page {
+
+        padding: 15px;
+    }
+
+
+    .login-card {
+
+        padding: 28px 22px;
+
+        border-radius: 18px;
+    }
+
+
+    .logo {
+
+        width: 68px;
+
+        height: 68px;
+
+        font-size: 28px;
+    }
+
+
+    .logo-area h1 {
+
+        font-size: 25px;
+    }
+
+
+    .form-options {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+    }
+
+
+    .forgot-password {
+
+        padding-left: 0;
+    }
+
+}
+
+
+/* ================================
+   ECRÃ MUITO PEQUENO
+================================ */
+
+@media (max-height: 650px) {
+
+    .login-page {
+
+        align-items: flex-start;
+
+        padding-top: 20px;
+    }
+
+
+    .login-card {
+
+        padding-top: 25px;
+
+        padding-bottom: 25px;
+    }
+
+
+    .logo-area {
+
+        margin-bottom: 20px;
+    }
+
+}

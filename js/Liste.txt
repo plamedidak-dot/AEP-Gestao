@@ -1,0 +1,231 @@
+memberForm.addEventListener(
+    "submit",
+    async (event) => {
+
+        event.preventDefault();
+
+        const nomeValue = nome.value.trim();
+        const cargoValue = cargo.value;
+
+        if (!nomeValue) {
+            showFormMessage(
+                "Digite o nome completo.",
+                "error"
+            );
+
+            nome.focus();
+            return;
+        }
+
+        try {
+
+            saveBtn.disabled = true;
+
+            saveBtn.innerHTML = `
+                <i class="fa-solid fa-spinner fa-spin"></i>
+                A verificar...
+            `;
+
+
+            // =================================================
+            // VERIFICAR CARGO
+            // =================================================
+
+            const cargosExclusivos = [
+                "Presidente",
+                "Vice-Presidente",
+                "Secretária",
+                "Tesoureiro"
+            ];
+
+
+            // "Membro" pode existir várias vezes
+
+            if (
+                cargosExclusivos.includes(cargoValue)
+            ) {
+
+                const snapshot =
+                    await getDocs(
+                        collection(
+                            db,
+                            "membros"
+                        )
+                    );
+
+
+                const cargoExistente =
+                    snapshot.docs.find(
+                        (item) => {
+
+                            // Se estiver editando,
+                            // ignorar o próprio membro
+
+                            if (
+                                memberId.value &&
+                                item.id === memberId.value
+                            ) {
+                                return false;
+                            }
+
+
+                            const data =
+                                item.data();
+
+
+                            return (
+                                data.cargo ===
+                                cargoValue
+                            );
+
+                        }
+                    );
+
+
+                if (cargoExistente) {
+
+                    const membroExistente =
+                        cargoExistente.data();
+
+
+                    showFormMessage(
+                        `Já existe um ${cargoValue} cadastrado: ${membroExistente.nome || "membro sem nome"}.`,
+                        "error"
+                    );
+
+
+                    saveBtn.disabled = false;
+
+                    saveBtn.innerHTML = `
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        Guardar membro
+                    `;
+
+                    return;
+
+                }
+
+            }
+
+
+            // =================================================
+            // PREPARAR DADOS
+            // =================================================
+
+            saveBtn.innerHTML = `
+                <i class="fa-solid fa-spinner fa-spin"></i>
+                A guardar...
+            `;
+
+
+            const data = {
+
+                nome:
+                    nomeValue,
+
+                matricula:
+                    matricula.value.trim(),
+
+                telefone:
+                    telefone.value.trim(),
+
+                classe:
+                    classe.value.trim(),
+
+                curso:
+                    curso.value.trim(),
+
+                cargo:
+                    cargoValue,
+
+                departamento:
+                    departamento.value.trim(),
+
+                estado:
+                    estado.value,
+
+                atualizadoEm:
+                    serverTimestamp()
+
+            };
+
+
+            // =================================================
+            // EDITAR
+            // =================================================
+
+            if (memberId.value) {
+
+                const memberRef =
+                    doc(
+                        db,
+                        "membros",
+                        memberId.value
+                    );
+
+
+                await updateDoc(
+                    memberRef,
+                    data
+                );
+
+            }
+
+            // =================================================
+            // NOVO MEMBRO
+            // =================================================
+
+            else {
+
+                data.criadoEm =
+                    serverTimestamp();
+
+
+                await addDoc(
+                    collection(
+                        db,
+                        "membros"
+                    ),
+                    data
+                );
+
+            }
+
+
+            // =================================================
+            // ATUALIZAR LISTA
+            // =================================================
+
+            await loadMembers();
+
+
+            closeMemberModal();
+
+
+        } catch (error) {
+
+            console.error(
+                "Erro ao guardar membro:",
+                error
+            );
+
+
+            showFormMessage(
+                "Ocorreu um erro ao guardar o membro.",
+                "error"
+            );
+
+
+        } finally {
+
+            saveBtn.disabled = false;
+
+            saveBtn.innerHTML = `
+                <i class="fa-solid fa-floppy-disk"></i>
+                Guardar membro
+            `;
+
+        }
+
+    }
+);

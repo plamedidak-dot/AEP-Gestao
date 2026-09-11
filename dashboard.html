@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="theme-color"
+        content="#f28c00"
+    >
+
+    <title>AEP-2 | Dashboard</title>
+
+    <link
+        rel="stylesheet"
+        href="css/dashboard.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+</head>
+
+<body>
+
+    <!-- =========================
+         MENU LATERAL
+    ========================== -->
+
+    <aside id="sidebar" class="sidebar">
+
+        <div class="sidebar-header">
+
+            <div class="brand-icon">
+                <i class="fa-solid fa-users"></i>
+            </div>
+
+            <div>
+                <h2>AEP-2</h2>
+                <span>Gestão</span>
+            </div>
+
+        </div>
+
+
+        <nav class="menu">
+
+            <p class="menu-title">
+                PRINCIPAL
+            </p>
+
+            <a
+                href="dashboard.html"
+                class="menu-item active"
+            >
+                <i class="fa-solid fa-house"></i>
+                <span>Dashboard</span>
+            </a>
+
+
+            <p class="menu-title">
+                ASSOCIAÇÃO
+            </p>
+
+            <a
+                href="membros.html"
+                class="menu-item"
+                data-module="membros"
+            >
+                <i class="fa-solid fa-users"></i>
+                <span>Membros</span>
+            </a>
+
+            <a
+                href="#"
+                class="menu-item"
+                data-module="departamentos"
+            >
+                <i class="fa-solid fa-building"></i>
+                <span>Departamentos</span>
+            </a>
+
+            <a
+                href="#"
+                class="menu-item"
+                data-module="presencas"
+            >
+                <i class="fa-solid fa-calendar-check"></i>
+                <span>Presenças</span>
+            </a>
+
+            <a
+                href="#"
+                class="menu-item"
+                data-module="quotas"
+            >
+                <i class="fa-solid fa-money-bill-wave"></i>
+                <span>Quotas</span>
+            </a>
+
+            <a
+                href="#"
+                class="menu-item"
+                data-module="reunioes"
+            >
+                <i class="fa-solid fa-handshake"></i>
+                <span>Reuniões</span>
+            </a>
+
+            <a
+                href="#"
+                class="menu-item"
+                data-module="relatorios"
+            >
+                <i class="fa-solid fa-chart-column"></i>
+                <span>Relatórios</span>
+            </a>
+
+            <a
+                href="#"
+                class="menu-item"
+                data-module="cartoes"
+            >
+                <i class="fa-solid fa-id-card"></i>
+                <span>Cartões</span>
+            </a>
+
+            <p class="menu-title">
+               configurações
+            </p>
+
+            <div class="menu-title">
+                SISTEMA
+            </div>
+
+            <a href="configuracoes.html" class="menu-item">
+                <i class="fa-solid fa-gear"></i>
+                <span>Configurações</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <button id="logoutButton">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                <span>
+                    Terminar sessão
+                </span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =========================
+         ÁREA PRINCIPAL
+    ========================== -->
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <button
+                id="menuButton"
+                class="menu-button"
+                aria-label="Abrir menu"
+            >
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+
+            <div class="topbar-title">
+
+                <h1>Dashboard</h1>
+
+                <p>
+                    Gestão da Associação dos Estudantes
+                </p>
+
+            </div>
+
+
+            <div class="user-area">
+
+                <div class="user-avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+                <div class="user-info">
+
+                    <strong id="userEmail">
+                        Carregando...
+                    </strong>
+
+                    <span>
+                        Utilizador
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =========================
+             CONTEÚDO
+        ========================== -->
+
+        <section class="content">
+
+            <div class="welcome">
+
+                <div>
+
+                    <span class="welcome-label">
+                        BEM-VINDO AO SISTEMA
+                    </span>
+
+                    <h2>
+                        Gestão AEP-2
+                    </h2>
+
+                    <p>
+                        Administre os membros,
+                        departamentos, presenças,
+                        quotas e atividades da associação.
+                    </p>
+
+                </div>
+
+                <div class="welcome-icon">
+
+                    <i class="fa-solid fa-school"></i>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 CARDS DE ESTATÍSTICAS
+            ========================== -->
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon members">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Membros
+                        </span>
+
+                        <strong id="totalMembers">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon departments">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Departamentos
+                        </span>
+
+                        <strong id="totalDepartments">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon presence">
+                        <i class="fa-solid fa-calendar-check"></i>
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Presenças
+                        </span>
+
+                        <strong id="totalPresences">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon meetings">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Reuniões
+                        </span>
+
+                        <strong id="totalMeetings">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =========================
+                 MÓDULOS
+            ========================== -->
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>
+                        Módulos do sistema
+                    </h2>
+
+                    <p>
+                        Acesso rápido às funções da associação.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="modules-grid">
+
+                <button
+                    class="module-card"
+                    data-module="membros"
+                >
+
+                    <i class="fa-solid fa-users"></i>
+
+                    <strong>
+                        Membros
+                    </strong>
+
+                    <span>
+                        Cadastrar e gerir membros
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="module-card"
+                    data-module="departamentos"
+                >
+
+                    <i class="fa-solid fa-building"></i>
+
+                    <strong>
+                        Departamentos
+                    </strong>
+
+                    <span>
+                        Organizar departamentos
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="module-card"
+                    data-module="presencas"
+                >
+
+                    <i class="fa-solid fa-calendar-check"></i>
+
+                    <strong>
+                        Presenças
+                    </strong>
+
+                    <span>
+                        Registar presenças
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="module-card"
+                    data-module="quotas"
+                >
+
+                    <i class="fa-solid fa-money-bill-wave"></i>
+
+                    <strong>
+                        Quotas
+                    </strong>
+
+                    <span>
+                        Controlar pagamentos
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="module-card"
+                    data-module="reunioes"
+                >
+
+                    <i class="fa-solid fa-handshake"></i>
+
+                    <strong>
+                        Reuniões
+                    </strong>
+
+                    <span>
+                        Gerir reuniões e atas
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="module-card"
+                    data-module="relatorios"
+                >
+
+                    <i class="fa-solid fa-chart-column"></i>
+
+                    <strong>
+                        Relatórios
+                    </strong>
+
+                    <span>
+                        Consultar relatórios
+                    </span>
+
+                </button>
+
+
+                <button
+                    class="module-card"
+                    data-module="cartoes"
+                >
+
+                    <i class="fa-solid fa-id-card"></i>
+
+                    <strong>
+                        Cartões
+                    </strong>
+
+                    <span>
+                        Cartões dos membros
+                    </span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <footer class="footer">
+
+            © 2026 AEP-2 — Sistema de Gestão
+
+        </footer>
+
+    </main>
+
+
+    <!-- Overlay mobile -->
+
+    <div
+        id="overlay"
+        class="overlay"
+    ></div>
+
+
+    <script
+        type="module"
+        src="js/dashboard.js"
+    ></script>
+
+</body>
+</html>
